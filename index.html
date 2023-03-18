@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2>Bài 1: Loại bỏ các giá trị falsy khỏi Array [false, null, 0, "", undefined, NaN, 1, 2, 3, "Not Empty"]</h2>
+<button onclick="removeFalsy()">Click to start</button>
+
+<h2>Bài 2: Viết hàm tìm kiếm phần tử lớn thứ hai trong một mảng</h2>
+<button onclick="findSndMax()">Click to start</button>
+
+<h2>Bài 3: Viết hàm đếm số lần xuất hiện của các phần tử trong một mảng và trả về một đối tượng với
+    key là giá trị của phần tử và value là số lần xuất hiện.</h2>
+<button onclick="findDupes()">Click to start</button>
+
+</body>
+</html>
+<script>
+    // Bài 1
+    function removeFalsy() {
+        let arr = [false, null, 0, "", undefined, NaN, 1, 2, 3, "Not Empty"];
+        console.log(arr);
+        let filteredArray = arr.filter(Boolean);
+        alert(`Array ban đầu là:\n[false, null, 0, "", undefined, NaN, 1, 2, 3, "Not Empty"]\nArray đã được lọc các giá trị falsy là:\n[${filteredArray}]`);
+    }
+
+    // Bài 2
+    function findSndMax() {
+        const arr = []
+        let arrLen = +prompt("Nhập chiều dài của Array");
+        for (let i = 0; i < arrLen; i++) {
+            let num = +prompt(`Nhập phần tử trong Array, còn ${arrLen - i} lần nhập`)
+            arr.push(num);
+        }
+        const arr1 = [...arr];
+        arr1.sort(function (a, b) {
+            return b - a
+        });
+        alert(`Array đã tạo [${arr}] có số lớn thứ 2 là ${arr1[1]}`)
+    }
+
+    // Bài 3
+
+    const arr = [];
+
+    function findDupes() {
+
+        let arrLength = +prompt("Nhập chiều dài Array muốn thiết lập: ");
+        // Lập Array, lấy dữ liệu từ người dùng
+        for (let i = 0; i < arrLength; i++) {
+            let item = prompt(`Nhập giá trị muốn đưa vào Array, còn ${arrLength - i} lần nhập`);
+            arr.push(item);
+        }
+        checkDupes();
+    }
+
+    const arrClone = [...arr];
+    let print = "";
+
+    function checkDupes() {
+        let dupesCounter;
+        for (let i = 0; i < arr.length; i++) {
+            dupesCounter = 1;
+            for (let j = 0; j < arr.length; j++) {
+                if (i !== j && arr[i] === arr[j]) {
+                    dupesCounter++;
+                }
+            }
+            print = `Phần tử ${arr[i]} lặp lại ${dupesCounter} lần ${arr}`;
+            if (arr.indexOf(arr[i]) === arr.indexOf(arr[j])) {
+                console.log(print);
+            }
+        }
+    }
+</script>
