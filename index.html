@@ -125,7 +125,7 @@
 
     let arrLen = +prompt("Nhập chiều dài của hai Array");
     for (let i = 0; i < arrLen; i++) {
-      let num = prompt(`Nhập phần tử trong Array thứ nhất, còn ${arrLen - i} lần nhập`);
+      let num = +prompt(`Nhập phần tử trong Array thứ nhất, còn ${arrLen - i} lần nhập`);
       arr.push(num);
     }
 
@@ -134,7 +134,7 @@
     let arrComb = [];
 
     for (let j = 0; j < arrLen; j++) {
-      let num1 = prompt(`Nhập phần tử trong Array thứ hai, còn ${arrLen - j} lần nhập`);
+      let num1 = +prompt(`Nhập phần tử trong Array thứ hai, còn ${arrLen - j} lần nhập`);
       arr1.push(num1);
     }
 
